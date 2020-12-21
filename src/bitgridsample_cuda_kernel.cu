@@ -69,7 +69,7 @@ __global__ void kernel(
     const int heightOut = gridDim.y * blockDim.y;
 
     for (int b = 0; b < batch; ++b) {
-        const int idxGrid = (b * heightIn * widthIn * 2) + (y * widthIn + x) * 2;
+        const int idxGrid = (b * heightOut * widthOut * 2) + (y * widthOut + x) * 2;
         const float fx = grid[idxGrid] * static_cast<float>(widthIn) / 2.f + static_cast<float>(widthIn - 1) / 2.f;
         const float fy = grid[idxGrid + 1] * static_cast<float>(heightIn) / 2.f + static_cast<float>(heightIn - 1) / 2.f;
 
