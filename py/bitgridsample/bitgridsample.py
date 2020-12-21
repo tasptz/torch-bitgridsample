@@ -14,7 +14,7 @@ class BitGridSample(torch.autograd.Function):
             out_grad = grid.new_empty(shape + (channels, 2)).contiguous()
             bitgridsample_cuda.forward(
                 x.contiguous(),
-                grid.squeeze().contiguous(),
+                grid.contiguous(),
                 out,
                 out_grad
             )      
